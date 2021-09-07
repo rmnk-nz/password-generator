@@ -11,27 +11,55 @@ function writePassword() {
 
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var specialCharacters = [
-    '@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.',
+    '@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'
   ];
 var lowerCasedCharacters = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
   ];
 var upperCasedCharacters = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
   ];  
 
+ /**
+  * get the users pw, length and what characters make up the pw
+  */ 
 function generatePassword() {
-  var passwordLength = prompt("Enter password length (between 8 and 128)");
-  var confirmLength = parseInt(passwordLength);
-  console.log(confirmLength);
+  // what is the desired length of the new pw
+  var pwLength = prompt("Please neter the length of your password: (between 8-128)");
 
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert ("password length not valid. try again");
+  // does the pw contain uppercase letters
+  var hasUpperCase = confirm("Do you want to include uppercase characters?");
+  // does the pw contain lowercase letters
+  var hasLowerCase = confirm("Do you want to include lower case characters?");
+  // does it contain numbers
+  var hasNumbers = confirm("Do you want to include numbers?")
+  // does it contain special characters
+  var hasSpecialCharacters = confirm("Do you want to include special characters?")
+
+  // define a new string to hold the new password
+  var newPw = ""
+  // define a new string for the character pool
+  var characterPool = [];
+
+    //  if the user selected uppercase, add to pool
+    if(hasUpperCase) {
+    characterPool.concat(upperCasedCharacters)
+    };
+      //  if the user selected lowercase, add to pool
+      if (hasLowerCase) {
+        characterPool.concat(lowerCasedCharacters)
+      };
+  //  if the user selected numbers, add to pool
+  //  if the user selected special characters, add to pool
+  if(characterPool.length === 0) {
     return;
   }
+
+  // iterate through the pool, pw length times, and index a random index from the pool
+  // append each new character to the new pw string
+
+  // return the generated password/ display it on the screen
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
