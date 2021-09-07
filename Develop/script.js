@@ -25,42 +25,55 @@ var upperCasedCharacters = [
   */ 
 function generatePassword() {
   // what is the desired length of the new pw
-  var pwLength = prompt("Please neter the length of your password: (between 8-128)");
+  var pwLength = prompt("Please enter the length of your password: (between 8-128)");
+
+  if(pwLength < 8 || pwLength > 128) {
+    alert("choice is not vaild. Try again");
+    return;
+  }
 
   // does the pw contain uppercase letters
   var hasUpperCase = confirm("Do you want to include uppercase characters?");
   // does the pw contain lowercase letters
   var hasLowerCase = confirm("Do you want to include lower case characters?");
   // does it contain numbers
-  var hasNumbers = confirm("Do you want to include numbers?")
+  var hasNumbers = confirm("Do you want to include numbers?");
   // does it contain special characters
-  var hasSpecialCharacters = confirm("Do you want to include special characters?")
+  var hasSpecialCharacters = confirm("Do you want to include special characters?");
 
-  // define a new string to hold the new password
-  var newPw = ""
+
   // define a new string for the character pool
   var characterPool = [];
 
     //  if the user selected uppercase, add to pool
     if(hasUpperCase) {
-    characterPool.concat(upperCasedCharacters)
-    };
-      //  if the user selected lowercase, add to pool
-      if (hasLowerCase) {
-        characterPool.concat(lowerCasedCharacters)
-      };
-  //  if the user selected numbers, add to pool
-  //  if the user selected special characters, add to pool
-  if(characterPool.length === 0) {
+      characterPool.concat(upperCasedCharacters)
+    }
+    //  if the user selected lowercase, add to pool
+    if(hasLowerCase) {
+      characterPool.concat(lowerCasedCharacters)
+    }
+    //  if the user selected numbers, add to pool
+    if(hasNumbers) {
+      characterPool.concat(numericCharacters)
+    }
+    //  if the user selected special characters, add to pool
+    if(hasSpecialCharacters) {
+      characterPool.concat(specialCharacters)
+    }
+    
+    if(characterPool.length === 0) {
+      alert("no choices were selected. try again");
     return;
-  }
 
+    // define a new string to hold the new password
+    var newPw = "";
   // iterate through the pool, pw length times, and index a random index from the pool
+
   // append each new character to the new pw string
 
   // return the generated password/ display it on the screen
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
-
+generateBtn.addEventListener("click", writePassword);
