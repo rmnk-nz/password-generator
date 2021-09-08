@@ -18,7 +18,7 @@ function writePassword() {
   var upperCasedCharacters = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];  
 
-  //select a random character from array
+  //function to select a random character from array
 function randomSelect(array) {
   var randomI = Math.floor(Math.random() * array.length)
   var randomE = array[randomI]
@@ -76,7 +76,7 @@ function generatePassword() {
     //define  a new string to hold new password
     var newPassword = [];
 
-    // iterate through the pool, pw length times, and random index from the pool
+    // iterate through the pool, include pw length, and random characters from the pool
     for (var i = 0; i < pwLength; i++) {
       var myChar = randomSelect(characterPool);
       newPassword.push(myChar)
