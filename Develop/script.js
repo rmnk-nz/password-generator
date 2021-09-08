@@ -74,15 +74,15 @@ function generatePassword() {
     }
 
     //define  a new string to hold new password
-    var result = [];
+    var newPassword = [];
 
     // iterate through the pool, pw length times, and random index from the pool
     for (var i = 0; i < pwLength; i++) {
       var myChar = randomSelect(characterPool);
-      result.push(myChar)
+      newPassword.push(myChar)
     }
     // return the generated password/ display it on the screen
-    return result.join('')
+    return newPassword.join('')
 }
 
 // Add event listener to generate button
